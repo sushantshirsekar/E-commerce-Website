@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Items = () => {
+    
   const productsArr = [
     {
       title: "Colors",
@@ -34,13 +35,13 @@ const Items = () => {
     },
   ];
   return (
-    <Container>
-      <Row>
+    <Container >
+      <Row className='mt-2'>
         {productsArr.map((item) => {
           return (
-            <Col xs={6} className="mt-2">
-              <Card variant="top" style={{width:'18rem'}} className='m-2'>
-                <Card.Img src={item.imageUrl} className='mt-0 border-bottom' />
+            <Col xs={4} className='mt-4'>
+              <Card variant="top" style={{width:'18rem'}} className=''>
+                <Card.Img src={item.imageUrl} className='border-bottom' />
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>{item.price}</Card.Text>

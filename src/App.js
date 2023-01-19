@@ -3,14 +3,15 @@ import "./App.css";
 
 import Items from "./components/Items";
 import Nav from "./components/Nav";
+import CartProvider from "./store/CartProvider";
 
 const App = () => {
   return (
-    <React.Fragment>
+    <CartProvider>
       <Nav />
         <Items />
       
-    </React.Fragment>
+    </CartProvider>
   );
 };
 
