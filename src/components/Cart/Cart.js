@@ -1,51 +1,123 @@
-import React from "react";
-import { Modal, Button, Container, Row, Col, Stack } from "react-bootstrap";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import React, { useState } from "react";
+import { Offcanvas, Button, Table, Badge } from "react-bootstrap";
 
 import CartContext from "../../store/cart-context";
 import { useContext } from "react";
 
-const Cart = (props) => {
-  const ctx = useContext(CartContext);
-  const cartHandlerInCart = () => {
-    return props.onCart(false);
-    console.log(props.onCart);
+const Cart = () => {
+  const [show, setShow] = useState(false);
+  const cartCtx = useContext(CartContext);
+  const cartHandler = () => {
+    setShow(true);
+    console.log(show);
+  };
+
+  const removeCartHandler = () => {
+    setShow(false);
+    console.log(show);
   };
   return (
-    <div
-      className="modal show"
-      style={{ display: "block", position: "initial" }}
-    >
-      <Modal.Dialog>
-        <Modal.Header>
-          <Modal.Title>Cart</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          <Container>
-            {console.log(ctx.items)}
-            {ctx.items.map((item) => {
-              return (
-                <Stack gap={4}>
-                    <div>
-                        <img src={item.imageUrl} style={{height:'50px', width:'50px'}}/>
-                        <span className="d-flex justify-content-center">{item.title}</span>
-                        <span className="d-flex justify-content-end">{item.price}</span>
-                    </div>
-                </Stack>
-              );
-            })}
-          </Container>
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={cartHandlerInCart}>
-            Close
+    <React.Fragment>
+        <Badge
+          className="bg-secondary text-lg"
+          style={{ cursor: "pointer", height:'35px', color: 'black' }}
+          onClick={cartHandler}
+        >
+          <h5>Cart [{cartCtx.items.length}]</h5>
+        </Badge>
+      <Offcanvas
+        show={show}
+        placement="end"
+        onHide={() => {
+          setShow(false);
+        }}
+        style={{ width: "700px", color: "white" }}
+        className="bg-dark "
+      >
+        <Offcanvas.Header>
+          <Offcanvas.Title>Cart</Offcanvas.Title>
+          <Button
+            className="bg-dark border-secondary"
+            style={{ height: "auto" }}
+            onClick={removeCartHandler}
+          >
+            X
           </Button>
-          <Button variant="primary">Place Order</Button>
-        </Modal.Footer>
-      </Modal.Dialog>
-    </div>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Table striped bordered hover variant="dark">
+            <thead>
+              <tr>
+                <th className="text-center">#</th>
+                <th className="text-center">Product:</th>
+                <th className="text-center">Price</th>
+                <th className="text-center">Quantity</th>
+                <th className="text-center">Add/Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              {console.log(cartCtx.items)}
+              {cartCtx.items.map((item) => {
+                let addButtonHandler = () => {
+                  return cartCtx.addItem(item);
+                };
+                let removeButtonHandler = () => {
+                  return cartCtx.removeItem(item.id);
+                };
+                return (
+                  <tr>
+                    <td>
+                      <img
+                        src={item.imageUrl}
+                        alt="Products"
+                        className="rounded mx-auto d-block"
+                        style={{ height: "60px", width: "60px" }}
+                      />
+                    </td>
+                    <td className="text-center fw-bold pt-4">{item.title}</td>
+                    <td className="text-center pt-4">{item.price}</td>
+                    <td className="text-center pt-4">{item.quantity}</td>
+                    <td className="text-center ">
+                      <Button className="m-1 bg-secondary border-dark" onClick={addButtonHandler}>
+                        +
+                      </Button>
+                      <Button
+                        className="m-1 bg-dark border-secondary"
+                        onClick={removeButtonHandler}
+                      >
+                        −
+                      </Button>
+                    </td>
+                  </tr>
+                );
+              })}
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td className="text-center">
+                  <h4>Total Amount:</h4>
+                </td>
+                <td className="text-center">
+                  <h4>{cartCtx.totalAmount}</h4>
+                </td>
+                <td className="text-center">
+                  <h4>{cartCtx.quantity}</h4>
+                </td>
+                <td>
+                  <Button className="mx-5 bg-secondary border-dark">Proceed to Buy</Button>
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </React.Fragment>
   );
 };
 
