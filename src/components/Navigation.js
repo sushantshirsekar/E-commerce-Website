@@ -1,7 +1,8 @@
 import React from "react";
-import { NavLink} from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import { Container, Navbar, NavbarBrand } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
+import classes from "./Navigation.module.css";
 
 import Cart from "./Cart/Cart";
 const Navigation = () => {
@@ -12,13 +13,19 @@ const Navigation = () => {
           <NavbarBrand>
             <Nav className="px-5 justify-content-center">
               <Nav.Item className="mx-4">
-                <NavLink style={{textDecoration:'none', color:'white'}} to='/'>Home</NavLink>
+                <NavLink className={classes["nav__header"]} to="/">
+                  Home
+                </NavLink>
               </Nav.Item>
               <Nav.Item className="mx-4">
-                <NavLink style={{textDecoration:'none', color:'white'}} to='/items'>Store</NavLink>
+                <NavLink className={classes["nav__header"]} to="/items">
+                  Store
+                </NavLink>
               </Nav.Item>
               <Nav.Item className="mx-4">
-                <NavLink style={{textDecoration:'none', color:'white'}} to='/about'>About</NavLink>
+                <NavLink className={classes["nav__header"]} to="/about">
+                  About
+                </NavLink>
               </Nav.Item>
             </Nav>
           </NavbarBrand>

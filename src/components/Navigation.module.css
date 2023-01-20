@@ -1,0 +1,7 @@
+.nav__header{
+    text-decoration: none;
+    color:white;
+}
+.active{
+    text-decoration-color: black;
+}

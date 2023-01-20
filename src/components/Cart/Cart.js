@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BsFillBagFill } from "react-icons/bs";
 import { Offcanvas, Button, Table, Badge } from "react-bootstrap";
 
 import CartContext from "../../store/cart-context";
@@ -12,7 +13,7 @@ const Cart = () => {
     console.log(show);
   };
 
-  let hasItems = cartCtx.items.length > 0; 
+  let hasItems = cartCtx.items.length > 0;
 
   const removeCartHandler = () => {
     setShow(false);
@@ -22,11 +23,14 @@ const Cart = () => {
   return (
     <React.Fragment>
       <Badge
-        className="bg-secondary text-lg"
-        style={{ cursor: "pointer", height: "35px", color: "black" }}
+        className="bg-secondary text-lg d-flex"
+        style={{ cursor: "pointer", height: "35px",width:'60px', color: "black" }}
         onClick={cartHandler}
       >
-        <h5>Cart [{cartCtx.quantity}]</h5>
+        <BsFillBagFill
+          style={{ height: "25px", width: "50px", color: "black" }}
+        ></BsFillBagFill>
+        <p className="pt-1 px-0" style={{fontSize:'1.2rem', color:'black'}}>{cartCtx.quantity}</p>
       </Badge>
       <Offcanvas
         show={show}
