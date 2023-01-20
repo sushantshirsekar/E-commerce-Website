@@ -12,19 +12,22 @@ const Cart = () => {
     console.log(show);
   };
 
+  let hasItems = cartCtx.items.length > 0; 
+
   const removeCartHandler = () => {
     setShow(false);
     console.log(show);
   };
+
   return (
     <React.Fragment>
-        <Badge
-          className="bg-secondary text-lg"
-          style={{ cursor: "pointer", height:'35px', color: 'black' }}
-          onClick={cartHandler}
-        >
-          <h5>Cart [{cartCtx.items.length}]</h5>
-        </Badge>
+      <Badge
+        className="bg-secondary text-lg"
+        style={{ cursor: "pointer", height: "35px", color: "black" }}
+        onClick={cartHandler}
+      >
+        <h5>Cart [{cartCtx.quantity}]</h5>
+      </Badge>
       <Offcanvas
         show={show}
         placement="end"
@@ -78,7 +81,10 @@ const Cart = () => {
                     <td className="text-center pt-4">{item.price}</td>
                     <td className="text-center pt-4">{item.quantity}</td>
                     <td className="text-center ">
-                      <Button className="m-1 bg-secondary border-dark" onClick={addButtonHandler}>
+                      <Button
+                        className="m-1 bg-secondary border-dark"
+                        onClick={addButtonHandler}
+                      >
                         +
                       </Button>
                       <Button
@@ -110,7 +116,11 @@ const Cart = () => {
                   <h4>{cartCtx.quantity}</h4>
                 </td>
                 <td>
-                  <Button className="mx-5 bg-secondary border-dark">Proceed to Buy</Button>
+                  {hasItems && (
+                    <Button className="mx-5 bg-secondary border-dark">
+                      Proceed to Buy
+                    </Button>
+                  )}
                 </td>
               </tr>
             </tbody>

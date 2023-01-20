@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Navbar } from "react-bootstrap";
+import { NavLink} from 'react-router-dom';
+import { Container, Navbar, NavbarBrand } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 
 import Cart from "./Cart/Cart";
@@ -8,19 +9,19 @@ const Navigation = () => {
     <React.Fragment>
       <Navbar bg="dark" expand="lg" variant="dark" className="mt-0">
         <Container className="d-flex justify-content-center pr-5">
-          <Navbar.Brand href="/" >
+          <NavbarBrand>
             <Nav className="px-5 justify-content-center">
               <Nav.Item className="mx-4">
-                <Nav.Link href="#home">Home</Nav.Link>
+                <NavLink style={{textDecoration:'none', color:'white'}} to='/'>Home</NavLink>
               </Nav.Item>
               <Nav.Item className="mx-4">
-                <Nav.Link href="#home">Store</Nav.Link>
+                <NavLink style={{textDecoration:'none', color:'white'}} to='/items'>Store</NavLink>
               </Nav.Item>
               <Nav.Item className="mx-4">
-                <Nav.Link href="#home">About</Nav.Link>
+                <NavLink style={{textDecoration:'none', color:'white'}} to='/about'>About</NavLink>
               </Nav.Item>
             </Nav>
-          </Navbar.Brand>
+          </NavbarBrand>
 
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
@@ -30,14 +31,14 @@ const Navigation = () => {
         </Container>
       </Navbar>
 
-      <Navbar className="bg-secondary text-center" style={{ height: "10rem" }}>
+      <Navbar className="bg-secondary text-center" style={{ height: "6rem" }}>
         <Container style={{ width: "20rem" }}>
-          <Navbar.Brand
+          <NavbarBrand
             style={{ fontSize: "3rem", fontFamily: "cursive" }}
             className="fw-bold"
           >
             The Generics
-          </Navbar.Brand>
+          </NavbarBrand>
         </Container>
       </Navbar>
     </React.Fragment>
