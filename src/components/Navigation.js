@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Navbar, NavbarBrand } from "react-bootstrap";
-import {BsHouseFill ,BsInfoSquareFill, BsFillBagFill } from "react-icons/bs";
-import {AiOutlineContacts} from "react-icons/ai";
+import {BsHouseFill ,BsInfoSquareFill, BsFillBagFill,BsFillPersonLinesFill } from "react-icons/bs";
+import {ImUserPlus} from 'react-icons/im';
 import Nav from "react-bootstrap/Nav";
 import classes from "./Navigation.module.css";
 
@@ -30,9 +30,9 @@ const Navigation = () => {
                 <BsInfoSquareFill />
                 </NavLink>
               </Nav.Item>
-              <Nav.Item className="mx-4">
+              <Nav.Item className="mx-4" >
                 <NavLink className={classes["nav__header"]} to="/contact">
-                <AiOutlineContacts />
+                <ImUserPlus />
                 </NavLink>
               </Nav.Item>
             </Nav>
