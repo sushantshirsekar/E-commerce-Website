@@ -4,6 +4,7 @@ import "./App.css";
 
 import Home from "./routes/Home";
 import Items from "./routes/Items";
+import ItemDetails from "./routes/ItemDetails";
 import About from "./routes/About";
 import Layout from "./routes/Layout";
 import CartProvider from "./store/CartProvider";
@@ -15,10 +16,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      {path:'/', element:<Home />},
+      { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
       { path: "/items", element: <Items /> },
-      {path: "/contact", element: <ContactUs />}, 
+      { path: "/contact", element: <ContactUs /> },
+      { path: "/items/:itemId", element: <ItemDetails /> },
     ],
   },
 ]);
@@ -28,7 +30,6 @@ const App = () => {
     <CartProvider>
       <RouterProvider router={router} />
       <Footer />
-
     </CartProvider>
   );
 };
