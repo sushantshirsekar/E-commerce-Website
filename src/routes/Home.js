@@ -28,9 +28,9 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="bg-dark m-5">
+      <div className="bg-dark m-4 ">
         <h2
-          className="text-center"
+          className="text-center pb-3"
           style={{ color: "white", fontFamily: "cursive" }}
         >
           Tours

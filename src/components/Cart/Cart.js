@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BsFillBagFill } from "react-icons/bs";
+import { BsFillCartFill } from "react-icons/bs";
 import { Offcanvas, Button, Table, Badge } from "react-bootstrap";
 
 import CartContext from "../../store/cart-context";
@@ -27,9 +27,9 @@ const Cart = () => {
         style={{ cursor: "pointer", height: "35px",width:'60px', color: "black" }}
         onClick={cartHandler}
       >
-        <BsFillBagFill
+        <BsFillCartFill
           style={{ height: "25px", width: "50px", color: "black" }}
-        ></BsFillBagFill>
+        ></BsFillCartFill>
         <p className="pt-1 px-0" style={{fontSize:'1.2rem', color:'black'}}>{cartCtx.quantity}</p>
       </Badge>
       <Offcanvas

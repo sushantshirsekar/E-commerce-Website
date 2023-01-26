@@ -8,6 +8,7 @@ import About from "./routes/About";
 import Layout from "./routes/Layout";
 import CartProvider from "./store/CartProvider";
 import Footer from "./components/Footer";
+import ContactUs from "./routes/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       {path:'/', element:<Home />},
       { path: "/about", element: <About /> },
       { path: "/items", element: <Items /> },
+      {path: "/contact", element: <ContactUs />}, 
     ],
   },
 ]);

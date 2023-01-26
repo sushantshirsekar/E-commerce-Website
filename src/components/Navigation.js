@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Navbar, NavbarBrand } from "react-bootstrap";
+import {BsHouseFill ,BsInfoSquareFill, BsFillBagFill } from "react-icons/bs";
+import {AiOutlineContacts} from "react-icons/ai";
 import Nav from "react-bootstrap/Nav";
 import classes from "./Navigation.module.css";
 
@@ -8,23 +10,29 @@ import Cart from "./Cart/Cart";
 const Navigation = () => {
   return (
     <React.Fragment>
+      
       <Navbar bg="dark" expand="lg" variant="dark" className="mt-0">
         <Container className="d-flex justify-content-center pr-5">
           <NavbarBrand>
             <Nav className="px-5 justify-content-center">
               <Nav.Item className="mx-4">
                 <NavLink className={classes["nav__header"]} to="/">
-                  Home
+                <BsHouseFill />
                 </NavLink>
               </Nav.Item>
               <Nav.Item className="mx-4">
                 <NavLink className={classes["nav__header"]} to="/items">
-                  Store
+                  <BsFillBagFill />
                 </NavLink>
               </Nav.Item>
               <Nav.Item className="mx-4">
                 <NavLink className={classes["nav__header"]} to="/about">
-                  About
+                <BsInfoSquareFill />
+                </NavLink>
+              </Nav.Item>
+              <Nav.Item className="mx-4">
+                <NavLink className={classes["nav__header"]} to="/contact">
+                <AiOutlineContacts />
                 </NavLink>
               </Nav.Item>
             </Nav>
