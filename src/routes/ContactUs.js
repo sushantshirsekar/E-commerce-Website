@@ -1,33 +1,64 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useRef } from "react";
+import { useRef, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import CartContext from "../store/cart-context";
 
 const ContactUs = () => {
   const nameRef = useRef("");
   const surnameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
+  const ctx = useContext(CartContext);
+  const history = useNavigate();
+  const [logInStatus, setLogInStatus] = useState(true);
 
-  const submitHandler = async (event) => {
+
+  const submitHandler = (event) => {
     event.preventDefault();
-    const user = {
-      name: nameRef.current.value,
-      surname: surnameRef.current.value,
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-    };
-    const res = await fetch(
-      "https://e-commerce-db-34fdc-default-rtdb.firebaseio.com/users.json",
-      {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await res.json();
-    console.log(data);
+    const enteredMail = emailRef.current.value;
+    const enteredPassword = passwordRef.current.value;
+    let url;
+    if (logInStatus) {
+      url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC2aWDHltsNHS2_AoE5WAwW53OyqeItl4g";
+    } else {
+      url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC2aWDHltsNHS2_AoE5WAwW53OyqeItl4g";
+    }
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        email: enteredMail,
+        password: enteredPassword,
+        returnSecureToken: true,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return res.json().then((data) => {
+            let errorMessage = "Registeration Failed";
+            if (data && data.error && data.error.message) {
+              errorMessage = data.error.message;
+            }
+            throw new Error(errorMessage);
+          });
+        }
+      })
+      .then((data) => {
+        ctx.login(data.idToken);
+        ctx.isLoggedIn = true;
+        setLogInStatus(ctx.isLoggedIn);
+        console.log(ctx.isLoggedIn);
+        history("/items");
+      }).catch((err)=> alert(err.message));
+  };
+  const switchStatus = () => {
+    setLogInStatus((prev) => !prev);
   };
   return (
     <div className="bg-dark" style={{ height: "600px" }}>
@@ -46,29 +77,36 @@ const ContactUs = () => {
             justifyContent: "center",
             margin: "auto",
             borderRadius: "10px",
-            background: ''
+            background: "",
           }}
         >
           <Form
             className="mt-3 mb-5 d-block text-center justify-content-center "
             onSubmit={submitHandler}
           >
-            <Form.Group className="mb-3 mt-3 " controlId="formBasicName ">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
-                ref={nameRef}
-                type="text"
-                placeholder="Enter name"
-              />
-            </Form.Group>
-            <Form.Group className="mb-3 mt-3 " controlId="formBasicSurName">
-              <Form.Label>Surname</Form.Label>
-              <Form.Control
-                ref={surnameRef}
-                type="text"
-                placeholder="Enter surname "
-              />
-            </Form.Group>
+            {console.log(logInStatus)}
+            {!logInStatus && (
+              <Form.Group className="mb-3 mt-3 " controlId="formBasicName ">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                  ref={nameRef}
+                  type="text"
+                  placeholder="Enter name"
+                  required
+                />
+              </Form.Group>
+            )}
+            {!logInStatus && (
+              <Form.Group className="mb-3 mt-3 " controlId="formBasicSurName">
+                <Form.Label>Surname</Form.Label>
+                <Form.Control
+                  ref={surnameRef}
+                  type="text"
+                  placeholder="Enter surname "
+                  required
+                />
+              </Form.Group>
+            )}
             <Form.Group
               className="mb-3 justify-content-center"
               controlId="formBasicEmail"
@@ -79,9 +117,6 @@ const ContactUs = () => {
                 type="email"
                 placeholder="Enter email"
               />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
@@ -91,8 +126,23 @@ const ContactUs = () => {
                 placeholder="Password"
               />
             </Form.Group>
-            <Button variant="dark" type="submit">
-              Submit
+            {logInStatus && (
+              <Button variant="dark" className="mb-2" type="submit">
+                Log in
+              </Button>
+            )}
+            {!logInStatus && (
+              <Button variant="dark" className="mb-2" type="submit">
+                Register
+              </Button>
+            )}
+            <br />
+            <Button
+              onClick={switchStatus}
+              className="bg-transparent border-none"
+              style={{ color: "blue", border: "none" }}
+            >
+              {logInStatus ? "Create Account" : "Log into existing Account"}
             </Button>
           </Form>
         </div>

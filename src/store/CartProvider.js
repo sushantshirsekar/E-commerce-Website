@@ -50,6 +50,8 @@ const CartProvider = (props) => {
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [quantity, setQuantity] = useState(0);
+  let storageToken = localStorage.getItem('idToken')
+  const [token, setToken] = useState(storageToken)
   const addItemToCartHandler = (item) => {
     let cartItems = [...items];
     let index = items.findIndex((item1) => item1.id === item.id);
@@ -84,6 +86,15 @@ const CartProvider = (props) => {
     setTotal(newTotal);
     setQuantity(newQuantity);
   };
+  const logInHandler = (token) => {
+    setToken(token)
+    localStorage.setItem('idToken', token);
+  }
+  const logOutHandler = () => {
+    setToken(null)
+    localStorage.removeItem('idToken');
+  }
+  
   const cartContext = {
     items: items,
     totalAmount: total,
@@ -91,6 +102,10 @@ const CartProvider = (props) => {
     addItem: addItemToCartHandler,
     removeItem: reomveItemFromCartHandler,
     products: productsArr,
+    token: token,
+    isLoggedIn: false, 
+    login: logInHandler,
+    logout: logOutHandler,
   };
   return (
     <CartContext.Provider value={cartContext}>
