@@ -1,7 +1,6 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useRef, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import CartContext from "../store/cart-context";
 
 const ContactUs = () => {
@@ -10,9 +9,7 @@ const ContactUs = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const ctx = useContext(CartContext);
-  const history = useNavigate();
   const [logInStatus, setLogInStatus] = useState(true);
-
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -22,6 +19,7 @@ const ContactUs = () => {
     if (logInStatus) {
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC2aWDHltsNHS2_AoE5WAwW53OyqeItl4g";
+        
     } else {
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC2aWDHltsNHS2_AoE5WAwW53OyqeItl4g";
@@ -36,7 +34,8 @@ const ContactUs = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
+    })
+      .then((res) => {
         if (res.ok) {
           return res.json();
         } else {
@@ -50,12 +49,14 @@ const ContactUs = () => {
         }
       })
       .then((data) => {
-        ctx.login(data.idToken);
-        ctx.isLoggedIn = true;
-        setLogInStatus(ctx.isLoggedIn);
-        console.log(ctx.isLoggedIn);
-        history("/items");
-      }).catch((err)=> alert(err.message));
+        if(ctx.isLoggedIn){
+          console.log(ctx.isLoggedIn);
+        }else{
+          ctx.login(data.idToken);
+        }
+
+      })
+      .catch((err) => alert(err.message));
   };
   const switchStatus = () => {
     setLogInStatus((prev) => !prev);

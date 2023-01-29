@@ -1,9 +1,10 @@
 import { BsFillPlayBtnFill } from "react-icons/bs";
 import { Button, Table } from "react-bootstrap";
+import React from "react";
 
 const Home = () => {
   return (
-    <>
+    <React.Fragment>
       <div className="bg-secondary">
         <div
           className="bg-secondary"
@@ -88,7 +89,7 @@ const Home = () => {
           </tbody>
         </Table>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 export default Home;

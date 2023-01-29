@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import CartContext from "./cart-context";
+import { useNavigate } from "react-router-dom";
 
 const CartProvider = (props) => {
+  const nav = useNavigate();
   
   const productsArr = [
     {
@@ -86,14 +88,19 @@ const CartProvider = (props) => {
     setTotal(newTotal);
     setQuantity(newQuantity);
   };
+
   const logInHandler = (token) => {
     setToken(token)
     localStorage.setItem('idToken', token);
+    nav("/");
   }
   const logOutHandler = () => {
     setToken(null)
     localStorage.removeItem('idToken');
+    nav("/contact");
   }
+  const userIsLoggedIn = !!token; 
+
   
   const cartContext = {
     items: items,
@@ -103,7 +110,7 @@ const CartProvider = (props) => {
     removeItem: reomveItemFromCartHandler,
     products: productsArr,
     token: token,
-    isLoggedIn: false, 
+    isLoggedIn: userIsLoggedIn, 
     login: logInHandler,
     logout: logOutHandler,
   };
