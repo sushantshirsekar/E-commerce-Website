@@ -10,14 +10,12 @@ const Cart = () => {
   const cartCtx = useContext(CartContext);
   const cartHandler = () => {
     setShow(true);
-    console.log(show);
   };
 
   let hasItems = cartCtx.items.length > 0;
 
   const removeCartHandler = () => {
     setShow(false);
-    console.log(show);
   };
 
   return (
@@ -74,7 +72,6 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {console.log(cartCtx.items)}
               {cartCtx.items.map((item) => {
                 let addButtonHandler = () => {
                   return cartCtx.addItem(item);

@@ -50,9 +50,8 @@ const ContactUs = () => {
       })
       .then((data) => {
         if(ctx.isLoggedIn){
-          console.log(ctx.isLoggedIn);
         }else{
-          ctx.login(data.idToken);
+          ctx.login(data.idToken,enteredMail);
         }
 
       })
@@ -85,7 +84,6 @@ const ContactUs = () => {
             className="mt-3 mb-5 d-block text-center justify-content-center "
             onSubmit={submitHandler}
           >
-            {console.log(logInStatus)}
             {!logInStatus && (
               <Form.Group className="mb-3 mt-3 " controlId="formBasicName ">
                 <Form.Label>First Name</Form.Label>

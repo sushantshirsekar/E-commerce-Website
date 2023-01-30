@@ -16,7 +16,6 @@ const Items = () => {
           const addItemToCartHandler = () => {
             return ctx.addItem(item);
           };
-          console.log(ctx.items);
           return (
             <Col xs={4} className="mt-4 d-fex justify-content-center ">
               <Card
