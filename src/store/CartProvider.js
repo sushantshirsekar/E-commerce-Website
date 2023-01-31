@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CartContext from "./cart-context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -224,13 +224,25 @@ const CartProvider = (props) => {
     
 
   ];
-  const [items, setItems] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [quantity, setQuantity] = useState(0);
+  const storageCart = JSON.parse(localStorage.getItem("cart") );
+  const storageQuantity = JSON.parse(localStorage.getItem("qty")); 
+  const storageTotal = JSON.parse(localStorage.getItem("tl")); 
+  const [items, setItems] = useState(storageCart);
+  const [total, setTotal] = useState(storageTotal);
+  const [quantity, setQuantity] = useState(storageQuantity);
   let storageToken = localStorage.getItem("idToken");
   const [token, setToken] = useState(storageToken);
   const [emailId, setEmail] = useState("");
   const [postreq, setPost] = useState(false);
+
+  
+
+
+  useEffect(()=> {
+    localStorage.setItem('cart', JSON.stringify(items)); 
+    localStorage.setItem('qty', JSON.stringify(quantity)); 
+    localStorage.setItem('tl', JSON.stringify(total)); 
+  }, [items, quantity,total])
 
   const addItemToCartHandler = (item) => {
     let cartItems = [...items];
@@ -253,7 +265,7 @@ const CartProvider = (props) => {
     let storageId = localStorage.getItem("crudId");
     axios
       .put(
-        `https://crudcrud.com/api/c2480bf20aab4d32b9ff7b3d311e9c2a/data${emailId}/${storageId}`,
+        `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${emailId}/${storageId}`,
         {
           cartItems: cartItems,
         }
@@ -277,7 +289,7 @@ const CartProvider = (props) => {
     let storageId = localStorage.getItem("crudId");
     axios
       .put(
-        `https://crudcrud.com/api/c2480bf20aab4d32b9ff7b3d311e9c2a/data${emailId}/${storageId}`,
+        `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${emailId}/${storageId}`,
         {
           cartItems: newItems,
         }
@@ -287,6 +299,31 @@ const CartProvider = (props) => {
     setTotal(newTotal);
     setQuantity(newQuantity);
   };
+  window.addEventListener('DOMContentLoaded', ()=>{
+    axios
+      .get(
+        `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${emailId}`
+      )
+      .then((res) => {
+        if (res.data.length) {
+          console.log(res.data);
+          console.log("no need");
+          let nq = 0;
+          let nt = 0;
+          res.data[0].cartItems.forEach((item) => {
+            nq = Number(nq) + Number(item.quantity);
+          });
+          res.data[0].cartItems.forEach((item) => {
+            nt = Number(nt) + Number(item.quantity) * Number(item.price);
+          });
+          setQuantity(nq);
+          setItems(res.data[0].cartItems);
+          setTotal(nt);
+          console.log(res.data[0]._id);
+        }
+      })
+  })
+
 
   const logInHandler = (token, email) => {
     setToken(token);
@@ -302,7 +339,7 @@ const CartProvider = (props) => {
     setEmail(str);
     axios
       .get(
-        `https://crudcrud.com/api/c2480bf20aab4d32b9ff7b3d311e9c2a/data${str}`
+        `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${str}`
       )
       .then((res) => {
         if (res.data.length) {
@@ -327,10 +364,13 @@ const CartProvider = (props) => {
           setPost(true);
         }
       });
-    if (postreq === true) {
+      let localstorageId = localStorage.getItem('crudId'); 
+      
+    if (postreq === true ) {
+      console.log(localstorageId);
       axios
         .post(
-          `https://crudcrud.com/api/c2480bf20aab4d32b9ff7b3d311e9c2a/data${str}`,
+          `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${str}`,
           {
             cartItems: [],
           }
@@ -346,6 +386,7 @@ const CartProvider = (props) => {
   const logOutHandler = () => {
     setToken(null);
     localStorage.removeItem("idToken");
+    localStorage.removeItem("crudId");
     nav("/contact");
     setItems([]);
     setQuantity(0);

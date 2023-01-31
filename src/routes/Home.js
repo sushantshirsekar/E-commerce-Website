@@ -47,7 +47,7 @@ const Home = () => {
                 <Button className="bg-black border-dark">
                   {" "}
                   <Link
-                    to="https://www.zigwheels.com/newbikes/Ather-Energy/450x"
+                    to="https://www.zigwheels.com/newbikes/Ather-Energy/450x" target="_blank"
                     style={{ textDecoration: "none", color: "white" }}
                   >
                     Releases Soon
@@ -64,7 +64,7 @@ const Home = () => {
               <td className="text-center ">
                 <Button className="bg-black border-dark">
                   <Link
-                    to="https://www.zigwheels.com/newbikes/Ola-Electric/Ola-S1"
+                    to="https://www.zigwheels.com/newbikes/Ola-Electric/Ola-S1" target="_blank"
                     style={{ textDecoration: "none", color: "white" }}
                   >
                     Releases Soon
@@ -79,7 +79,7 @@ const Home = () => {
               <td className="text-center ">
                 <Button className="bg-black border-dark">
                   <Link
-                    to="https://www.zigwheels.com/newbikes/vida/v1"
+                    to="https://www.zigwheels.com/newbikes/vida/v1" target="_blank"
                     style={{ textDecoration: "none", color: "white" }}
                   >
                     Releases Soon
@@ -94,7 +94,7 @@ const Home = () => {
               <td className="text-center ">
               <Button className="bg-black border-dark">
                   <Link
-                    to="https://www.zigwheels.com/newbikes/Revolt-Motors/rv-400"
+                    to="https://www.zigwheels.com/newbikes/Revolt-Motors/rv-400" target="_blank"
                     style={{ textDecoration: "none", color: "white" }}
                   >
                     Releases Soon
@@ -109,7 +109,7 @@ const Home = () => {
               <td className="text-center ">
               <Button className="bg-black border-dark">
                   <Link
-                    to="https://www.zigwheels.com/newbikes/Ultraviolette/f77"
+                    to="https://www.zigwheels.com/newbikes/Ultraviolette/f77" target="_blank"
                     style={{ textDecoration: "none", color: "white" }}
                   >
                     Releases Soon
@@ -124,7 +124,7 @@ const Home = () => {
               <td className="text-center ">
               <Button className="bg-black border-dark">
                   <Link
-                    to="https://www.zigwheels.com/newbikes/Oben/electric-bike"
+                    to="https://www.zigwheels.com/newbikes/Oben/electric-bike" target="_blank"
                     style={{ textDecoration: "none", color: "white" }}
                   >
                     Releases Soon

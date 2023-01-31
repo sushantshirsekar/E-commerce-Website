@@ -80,7 +80,7 @@ const Cart = () => {
                   return cartCtx.removeItem(item.id);
                 };
                 return (
-                  <tr>
+                  <tr key={item.id}>
                     <td>
                       <img
                         src={item.imageUrl}

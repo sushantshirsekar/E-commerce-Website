@@ -13,7 +13,7 @@ const Items = () => {
   return (
     <Container>
       {false && <ItemDetails />}
-      <Row className="mt-2 ">
+      <Row className="mt-2">
         {ctx.products.map((item) => {
           const addItemToCartHandler = () => {
             return ctx.addItem(item);

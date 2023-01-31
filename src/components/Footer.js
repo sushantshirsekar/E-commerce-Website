@@ -24,17 +24,17 @@ const Footer = () => {
             </Card.Text>
           </Container>
           <Card.Text>
-            <Link to="https://github.com/sushantshirsekar">
+            <Link to="https://github.com/sushantshirsekar" target="_blank">
               <BsGithub style={{ height: "30px", width: "30px" , color:'black'}} className="mx-1" />
             </Link>
           </Card.Text>
           <Card.Text>
-            <Link to="https://www.facebook.com/sushant.shirsekar.5">
+            <Link to="https://www.facebook.com/sushant.shirsekar.5" target="_blank">
               <BsFacebook style={{ height: "30px", width: "30px" , color:'black'}} className="mx-1"/>
             </Link>
           </Card.Text>
           <Card.Text>
-            <Link to="https://instagram.com/sushant_shirsekar_?igshid=ZmZhODViOGI=">
+            <Link to="https://instagram.com/sushant_shirsekar_?igshid=ZmZhODViOGI=" target="_blank">
               <BsInstagram style={{ height: "30px", width: "30px", color:'black' }} className="mx-1"/>
             </Link>
           </Card.Text>
