@@ -153,7 +153,7 @@ const CartProvider = (props) => {
       axios.post(`https://crudcrud.com/api/8853aeb55e854386a6f47e79694a28b3/data${str}`,{
         cartItems:[], 
       }).then((res)=>{
-        console.log(res.data);
+        console.log(res);
         console.log(res.data._id);
         localStorage.setItem('crudId',res.data._id)
       })
@@ -166,6 +166,9 @@ const CartProvider = (props) => {
     setToken(null)
     localStorage.removeItem('idToken');
     nav("/contact");
+    setItems([]);
+    setQuantity(0);
+    setTotal(0);
   }
   const userIsLoggedIn = !!token; 
 

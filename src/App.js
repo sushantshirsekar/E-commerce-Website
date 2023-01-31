@@ -12,6 +12,7 @@ import Layout from "./routes/Layout";
 import Footer from "./components/Footer";
 import ContactUs from "./routes/ContactUs";
 import Error from "./routes/Error";
+import ItemDetails from "./routes/ItemDetails";
 
 // const router = createBrowserRouter([
 //   {
@@ -37,7 +38,9 @@ const App = () => {
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />} />
           {ctx.isLoggedIn && <Route path="/items" element={<Items />} />}
+          {ctx.isLoggedIn && <Route path="/items/:itemId" element={<ItemDetails />} />}
           {!ctx.isLoggedIn && <Route path="/contact" element={<ContactUs />} />}
+
           <Route path="*" element={<Error />}/>
         </Routes>
       </Layout>
