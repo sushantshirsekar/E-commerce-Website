@@ -5,6 +5,8 @@ import CartContext from "../store/cart-context";
 import { useContext } from "react";
 import ItemDetails from "./ItemDetails";
 
+
+
 const Items = () => {
   const ctx = useContext(CartContext);
 
@@ -43,7 +45,7 @@ const Items = () => {
                       to={`/items/${item.id}`}
                       style={{ textDecoration: "none", color: "white" }}
                     >
-                      ${item.price}
+                      ₹ {item.price}
                     </Link>
                   </Card.Text>
                   <Button

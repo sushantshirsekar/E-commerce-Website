@@ -23,7 +23,7 @@ const ItemDetails = () => {
         <CardImg
           src={items[index].imageUrl}
           alt="Card image"
-          style={{ height: "500px", width: "500px" }}
+          style={{ height: "500px", width: "750px" }}
         />
       </Card>
       <Card className="bg-dark m-5 border-dark">
@@ -31,7 +31,7 @@ const ItemDetails = () => {
         <Card.Text style={{ color: "white" }}>
           {items[index].description}
         </Card.Text>
-        <Card.Text style={{ color: "white",fontSize:'2rem' }}>${items[index].price}</Card.Text>
+        <Card.Text style={{ color: "white",fontSize:'2rem' }}>₹ {items[index].price}</Card.Text>
 
 
         <Button

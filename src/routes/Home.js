@@ -1,6 +1,7 @@
 import { BsFillPlayBtnFill } from "react-icons/bs";
 import { Button, Table } from "react-bootstrap";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -20,7 +21,7 @@ const Home = () => {
             className="text-center"
             style={{ fontSize: "1.5rem", fontFamily: "cursive" }}
           >
-            Get your Latest Album
+            Get your Bike with us
           </p>
         </div>
         <div className="d-flex justify-content-center">
@@ -34,56 +35,101 @@ const Home = () => {
           className="text-center pb-3"
           style={{ color: "white", fontFamily: "cursive" }}
         >
-          Tours
+          New Updates
         </h2>
         <Table striped bordered hover variant="dark">
           <tbody>
             <tr>
               <td className="text-center pt-3">JUL 16</td>
-              <td className="text-center pt-3">DETROIT, MI</td>
-              <td className="text-center pt-3">DTE ENERGY MUSIC THEATRE</td>
+              <td className="text-center pt-3">Electric Scooter</td>
+              <td className="text-center pt-3">Ather 450X</td>
               <td className="text-center ">
-                <Button className="bg-black border-dark">Buy Tickets</Button>
+                <Button className="bg-black border-dark">
+                  {" "}
+                  <Link
+                    to="https://www.zigwheels.com/newbikes/Ather-Energy/450x"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    Releases Soon
+                  </Link>
+                </Button>
               </td>
             </tr>
             <tr>
               <td className="text-center pt-3">JUL 19</td>
-              <td className="text-center pt-3">TORONTO,ON, MI</td>
-              <td className="text-center pt-3">BUDWEISER STAGE</td>
+              <td className="text-center pt-3">
+                Electric Scooter with best Specs
+              </td>
+              <td className="text-center pt-3">OLA S1</td>
               <td className="text-center ">
-                <Button className="bg-black border-dark">Buy Tickets</Button>
+                <Button className="bg-black border-dark">
+                  <Link
+                    to="https://www.zigwheels.com/newbikes/Ola-Electric/Ola-S1"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    Releases Soon
+                  </Link>
+                </Button>
               </td>
             </tr>
             <tr>
               <td className="text-center pt-3">JUL 22</td>
-              <td className="text-center pt-3">BRISTOW, VA</td>
-              <td className="text-center pt-3">JIGGY LUBE LIVE</td>
+              <td className="text-center pt-3">Electric Scooter</td>
+              <td className="text-center pt-3">Vida V1</td>
               <td className="text-center ">
-                <Button className="bg-black border-dark">Buy Tickets</Button>
+                <Button className="bg-black border-dark">
+                  <Link
+                    to="https://www.zigwheels.com/newbikes/vida/v1"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    Releases Soon
+                  </Link>
+                </Button>
               </td>
             </tr>
             <tr>
               <td className="text-center pt-3">JUL 29</td>
-              <td className="text-center pt-3">PHOENIX, AZ</td>
-              <td className="text-center pt-3">AK-CHIN PAVILION</td>
+              <td className="text-center pt-3">Electric Bike</td>
+              <td className="text-center pt-3">Revolt RV400</td>
               <td className="text-center ">
-                <Button className="bg-black border-dark">Buy Tickets</Button>
+              <Button className="bg-black border-dark">
+                  <Link
+                    to="https://www.zigwheels.com/newbikes/Revolt-Motors/rv-400"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    Releases Soon
+                  </Link>
+                </Button>
               </td>
             </tr>
             <tr>
               <td className="text-center pt-3">AUG 2</td>
-              <td className="text-center pt-3">LAS VEGAS, NV</td>
-              <td className="text-center pt-3">T-MOBILE ARENA</td>
+              <td className="text-center pt-3">Electri Bike</td>
+              <td className="text-center pt-3">Ultraviolette F77</td>
               <td className="text-center ">
-                <Button className="bg-black border-dark">Buy Tickets</Button>
+              <Button className="bg-black border-dark">
+                  <Link
+                    to="https://www.zigwheels.com/newbikes/Ultraviolette/f77"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    Releases Soon
+                  </Link>
+                </Button>
               </td>
             </tr>
             <tr>
               <td className="text-center pt-3">AUG 7</td>
-              <td className="text-center pt-3">CONCORD, CA</td>
-              <td className="text-center pt-3">CONCORD PAVILION</td>
+              <td className="text-center pt-3">Electric Bike</td>
+              <td className="text-center pt-3">Oben Rorr</td>
               <td className="text-center ">
-                <Button className="bg-black border-dark">Buy Tickets</Button>
+              <Button className="bg-black border-dark">
+                  <Link
+                    to="https://www.zigwheels.com/newbikes/Oben/electric-bike"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    Releases Soon
+                  </Link>
+                </Button>
               </td>
             </tr>
           </tbody>

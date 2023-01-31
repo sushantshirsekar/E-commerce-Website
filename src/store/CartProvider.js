@@ -5,65 +5,238 @@ import axios from "axios";
 
 const CartProvider = (props) => {
   const nav = useNavigate();
-  
+
   const productsArr = [
     {
       id: 1,
-      title: "Colors",
-      price: 100,
+      title: "Burgman Street",
+      price: 110000,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+        "https://bd.gaadicdn.com/processedimages/suzuki/burgman-street/source/burgman-street61726bef4097e.jpg",
       quantity: 1,
-      description:'A great shade of all colors colors that make you feel good',
-
+      description: "A great shade of all colors colors that make you feel good",
     },
 
     {
       id: 2,
-      title: "Black and white Colors",
-      price: 50,
+      title: "Yamaha Ray Zr 125",
+      price: 86000,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+        "https://media.zigcdn.com/media/model/2021/Sep/yamaha-rayzr-125-hybrid-right-side-view_930x620.jpg",
       quantity: 1,
-      description:'A great shade of black and white colors that make you feel good',
+      description:
+        "A great shade of black and white colors that make you feel good",
     },
 
     {
       id: 3,
-      title: "Yellow and Black Colors",
-      price: 70,
+      title: "Access 125",
+      price: 80000,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+        "https://bd.gaadicdn.com/processedimages/suzuki/bs6-access-125/source/bs6-access-12561d6d0a2d5f73.jpg",
       quantity: 1,
-      description:'A great shade of yellow and black colors that make you feel good',
+      description:
+        "Kam piti hai",
+    },
 
+    
+    {
+      id: 4,
+      title: "Activa 125",
+      price: 75000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/honda/activa-125-2019/source/activa-125-201962579fe573f09.jpg",
+      quantity: 1,
+      description:
+        "India's most trusted and reliable Brand",
+    },
+    {
+      id: 5,
+      title: "Tvs Jupiter",
+      price: 60000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/tvs/tvs-jupiter/source/tvs-jupiter6230710946430.jpg",
+      quantity: 1,
+      description:
+        "Jyada ka fayda",
+    },
+    {
+      id: 6,
+      title: "Suzuki Avenis",
+      price: 60000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/suzuki/sporty-scooter/source/sporty-scooter624bfe2f09cd1.jpg",
+      quantity: 1,
+      description:
+        "Youth's new sports look",
+    },
+    {
+      id: 7,
+      title: "Tvs Ntorq",
+      price: 60000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/tvs/ntorq-125/source/ntorq-1256108e5337cf73.jpg",
+      quantity: 1,
+      description:
+        "Now Ntorq is in avengers edition",
+    },
+    {
+      id: 8,
+      title: "Honda Dio",
+      price: 60000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/honda/dio-bs6/source/dio-bs662ea4714f1656.jpg",
+      quantity: 1,
+      description:
+        "Your trusted brand with new graphics",
+    },
+    {
+      id: 9,
+      title: "Aprilia SR 160",
+      price: 130000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/aprilia/sr-160-bs6/source/sr-160-bs662135f8e85b90.jpg",
+      quantity: 1,
+      description:
+        "Italian Brand in India",
+    },
+    {
+      id: 10,
+      title: "Ktm 390",
+      price: 300000,
+      imageUrl:
+        "https://media.zigcdn.com/media/model/2020/Mar/ktm-390-duke-bs6-right-side-view_930x620.jpg",
+      quantity: 1,
+      description:
+        "Sports bike India, used for travelling and professional riding",
+    },
+    {
+      id: 11,
+      title: "Royal Enfield Himalayan",
+      price: 215000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/royal-enfield/himalayan-bs6/source/himalayan-bs6637f6287a2f8e.jpg",
+      quantity: 1,
+      description:
+        "India's tradition with power ",
+    },
+    {
+      id: 12,
+      title: "R15 V4",
+      price: 180000,
+      imageUrl:
+        "https://media.zigcdn.com/media/model/2021/Sep/yamaha-r15-v4-dark-right-side-view_930x620.jpg",
+      quantity: 1,
+      description:
+        "Japanese reliability with speed",
+    },
+    {
+      id: 13,
+      title: "Royal Enfield Classic 350",
+      price: 190000,
+      imageUrl:
+        "https://media.zigcdn.com/media/model/2021/Sep/2021-classic-350_930x620.jpg",
+      quantity: 1,
+      description:
+        "India's power house, racing with passion",
+    },
+    {
+      id: 14,
+      title: "Apache RTR 200 4v",
+      price: 136000,
+      imageUrl:
+        "https://media.zigcdn.com/media/model/2021/Nov/tvs-apache-rtr-2004v-right-side-view_930x620.jpg",
+      quantity: 1,
+      description:
+        "India's tradition with power ",
+    },
+    {
+      id: 15,
+      title: "Yamaha FZ-X",
+      price: 135000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/yamaha/fz-x/source/fz-x610a1456cfa97.jpg",
+      quantity: 1,
+      description:
+        "India's reliable engine with tradition ",
+    },
+    {
+      id: 16,
+      title: "Honda SP 125",
+      price: 84000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/honda/sp-125/source/sp-125625916ffc90d3.jpg",
+      quantity: 1,
+      description:
+        "India's most affordable bike",
+    },
+    {
+      id: 17,
+      title: "Bajaj Pulsar 125",
+      price: 87000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/bajaj/pulsar-125/source/pulsar-125614322674098a.jpg",
+      quantity: 1,
+      description:
+        "Pulsar always with you",
+    },
+    {
+      id: 18,
+      title: "TVS Raidor",
+      price: 85000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/tvs/raider/494X300/raider635225f6ed3f3.jpg",
+      quantity: 1,
+      description:
+        "TVS's first 125cc bike",
     },
 
     {
-      id: 4,
-      title: "Blue Color",
-      price: 100,
+      id: 19,
+      title: "Vespa SXL 125",
+      price: 133000,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+        "https://bd.gaadicdn.com/processedimages/vespa/sxl-125/source/sxl-1256214a91eb6f1c.jpg",
       quantity: 1,
-      description:'A great shade of blue colors and its combination that make you feel good',
-
+      description:
+        "Italian Trust",
     },
+    {
+      id: 20,
+      title: "Yamaha Fascino",
+      price: 78000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/yamaha/fascino-125/source/fascino-125619df9072eff0.jpg",
+      quantity: 1,
+      description:
+        "Fascino Fascino",
+    },
+    {
+      id: 21,
+      title: "Pleasure Plus",
+      price: 70000,
+      imageUrl:
+        "https://bd.gaadicdn.com/processedimages/hero/pleasure-2019/source/pleasure-20196299cfc5a9433.jpg",
+      quantity: 1,
+      description:
+        "Pleasure to ride",
+    },
+    
+
   ];
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [quantity, setQuantity] = useState(0);
-  let storageToken = localStorage.getItem('idToken')
-  const [token, setToken] = useState(storageToken)
-  const [emailId, setEmail] = useState(""); 
-  const [postreq, setPost] = useState(false); 
-
+  let storageToken = localStorage.getItem("idToken");
+  const [token, setToken] = useState(storageToken);
+  const [emailId, setEmail] = useState("");
+  const [postreq, setPost] = useState(false);
 
   const addItemToCartHandler = (item) => {
     let cartItems = [...items];
     let index = items.findIndex((item1) => item1.id === item.id);
     if (index === -1) {
-      cartItems.push({...item});
+      cartItems.push({ ...item });
     } else {
       cartItems[index].quantity = Number(cartItems[index].quantity) + 1;
     }
@@ -72,107 +245,114 @@ const CartProvider = (props) => {
       (item) =>
         (newTotal = Number(newTotal) + Number(item.quantity * item.price))
     );
-    let newQuantity = 0; 
-    cartItems.forEach((item)=> newQuantity = newQuantity + item.quantity);
+    let newQuantity = 0;
+    cartItems.forEach((item) => (newQuantity = newQuantity + item.quantity));
     setItems(cartItems);
     setTotal(newTotal);
     setQuantity(newQuantity);
-    let storageId = localStorage.getItem('crudId');
-    axios.put(`https://crudcrud.com/api/8853aeb55e854386a6f47e79694a28b3/data${emailId}/${storageId}`,{
-      cartItems:cartItems, 
-    }).then((res)=>{
-      console.log(res);
-    })
+    let storageId = localStorage.getItem("crudId");
+    axios
+      .put(
+        `https://crudcrud.com/api/c2480bf20aab4d32b9ff7b3d311e9c2a/data${emailId}/${storageId}`,
+        {
+          cartItems: cartItems,
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      });
   };
-
-
 
   const reomveItemFromCartHandler = (id) => {
     let cartItems = [...items];
     let index = items.findIndex((item1) => item1.id === id);
     if (cartItems[index].id === id) {
       cartItems[index].quantity = Number(cartItems[index].quantity) - 1;
-      
     }
     let newItems = cartItems.filter((item) => item.quantity !== 0);
     let newTotal = 0;
     newItems.forEach((item) => (newTotal = newTotal + item.price));
-    let newQuantity = 0; 
-    cartItems.forEach((item)=> newQuantity = newQuantity + item.quantity);
-    let storageId = localStorage.getItem('crudId');
-    axios.put(`https://crudcrud.com/api/8853aeb55e854386a6f47e79694a28b3/data${emailId}/${storageId}`,{
-      cartItems:newItems, 
-    }).then((res)=> console.log(res));
+    let newQuantity = 0;
+    cartItems.forEach((item) => (newQuantity = newQuantity + item.quantity));
+    let storageId = localStorage.getItem("crudId");
+    axios
+      .put(
+        `https://crudcrud.com/api/c2480bf20aab4d32b9ff7b3d311e9c2a/data${emailId}/${storageId}`,
+        {
+          cartItems: newItems,
+        }
+      )
+      .then((res) => console.log(res));
     setItems(newItems);
     setTotal(newTotal);
     setQuantity(newQuantity);
   };
 
-
-
-
-
-  const logInHandler = (token,email) => {
-    setToken(token)
-    localStorage.setItem('idToken', token);
+  const logInHandler = (token, email) => {
+    setToken(token);
+    localStorage.setItem("idToken", token);
     nav("/");
-    let str = ""; 
-    let emailMap = email.split(""); 
-    emailMap.forEach((char)=> {
-      if(char !== "." && char !== "@"){
-        str = str + char; 
+    let str = "";
+    let emailMap = email.split("");
+    emailMap.forEach((char) => {
+      if (char !== "." && char !== "@") {
+        str = str + char;
       }
-    })
-    setEmail(str); 
-    axios.get(`https://crudcrud.com/api/8853aeb55e854386a6f47e79694a28b3/data${str}`)
-    .then((res)=>{
-      if(res.data.length){
-        console.log(res.data);
-        console.log('no need');
-        let nq = 0; 
-        let nt = 0; 
-        res.data[0].cartItems.forEach((item)=>{
-          nq = Number(nq) + Number(item.quantity); 
-        })
-        res.data[0].cartItems.forEach((item)=>{
-          nt = Number(nt) + (Number(item.quantity)*Number(item.price)); 
-        })
-        setQuantity(nq);
-        setItems(res.data[0].cartItems);
-        setTotal(nt); 
-        console.log(res.data[0]._id);
-        localStorage.setItem('crudId',res.data[0]._id);
-      }
-      else {
-        console.log('post needed'); 
-        console.log(res.data);
-        setPost(true);
-      }
-    })
-    if(postreq === true){
-      axios.post(`https://crudcrud.com/api/8853aeb55e854386a6f47e79694a28b3/data${str}`,{
-        cartItems:[], 
-      }).then((res)=>{
-        console.log(res);
-        console.log(res.data._id);
-        localStorage.setItem('crudId',res.data._id)
-      })
+    });
+    setEmail(str);
+    axios
+      .get(
+        `https://crudcrud.com/api/c2480bf20aab4d32b9ff7b3d311e9c2a/data${str}`
+      )
+      .then((res) => {
+        if (res.data.length) {
+          console.log(res.data);
+          console.log("no need");
+          let nq = 0;
+          let nt = 0;
+          res.data[0].cartItems.forEach((item) => {
+            nq = Number(nq) + Number(item.quantity);
+          });
+          res.data[0].cartItems.forEach((item) => {
+            nt = Number(nt) + Number(item.quantity) * Number(item.price);
+          });
+          setQuantity(nq);
+          setItems(res.data[0].cartItems);
+          setTotal(nt);
+          console.log(res.data[0]._id);
+          localStorage.setItem("crudId", res.data[0]._id);
+        } else {
+          console.log("post needed");
+          console.log(res.data);
+          setPost(true);
+        }
+      });
+    if (postreq === true) {
+      axios
+        .post(
+          `https://crudcrud.com/api/c2480bf20aab4d32b9ff7b3d311e9c2a/data${str}`,
+          {
+            cartItems: [],
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          console.log(res.data._id);
+          localStorage.setItem("crudId", res.data._id);
+        });
     }
-  }
-
-
+  };
 
   const logOutHandler = () => {
-    setToken(null)
-    localStorage.removeItem('idToken');
+    setToken(null);
+    localStorage.removeItem("idToken");
     nav("/contact");
     setItems([]);
     setQuantity(0);
     setTotal(0);
-  }
-  const userIsLoggedIn = !!token; 
+  };
+  const userIsLoggedIn = !!token;
 
-  
   const cartContext = {
     items: items,
     totalAmount: total,
@@ -181,7 +361,7 @@ const CartProvider = (props) => {
     removeItem: reomveItemFromCartHandler,
     products: productsArr,
     token: token,
-    isLoggedIn: userIsLoggedIn, 
+    isLoggedIn: userIsLoggedIn,
     login: logInHandler,
     logout: logOutHandler,
   };
