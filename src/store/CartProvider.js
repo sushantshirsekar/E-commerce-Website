@@ -35,11 +35,9 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/suzuki/bs6-access-125/source/bs6-access-12561d6d0a2d5f73.jpg",
       quantity: 1,
-      description:
-        "Kam piti hai",
+      description: "Kam piti hai",
     },
 
-    
     {
       id: 4,
       title: "Activa 125",
@@ -47,8 +45,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/honda/activa-125-2019/source/activa-125-201962579fe573f09.jpg",
       quantity: 1,
-      description:
-        "India's most trusted and reliable Brand",
+      description: "India's most trusted and reliable Brand",
     },
     {
       id: 5,
@@ -57,8 +54,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/tvs/tvs-jupiter/source/tvs-jupiter6230710946430.jpg",
       quantity: 1,
-      description:
-        "Jyada ka fayda",
+      description: "Jyada ka fayda",
     },
     {
       id: 6,
@@ -67,8 +63,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/suzuki/sporty-scooter/source/sporty-scooter624bfe2f09cd1.jpg",
       quantity: 1,
-      description:
-        "Youth's new sports look",
+      description: "Youth's new sports look",
     },
     {
       id: 7,
@@ -77,8 +72,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/tvs/ntorq-125/source/ntorq-1256108e5337cf73.jpg",
       quantity: 1,
-      description:
-        "Now Ntorq is in avengers edition",
+      description: "Now Ntorq is in avengers edition",
     },
     {
       id: 8,
@@ -87,8 +81,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/honda/dio-bs6/source/dio-bs662ea4714f1656.jpg",
       quantity: 1,
-      description:
-        "Your trusted brand with new graphics",
+      description: "Your trusted brand with new graphics",
     },
     {
       id: 9,
@@ -97,8 +90,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/aprilia/sr-160-bs6/source/sr-160-bs662135f8e85b90.jpg",
       quantity: 1,
-      description:
-        "Italian Brand in India",
+      description: "Italian Brand in India",
     },
     {
       id: 10,
@@ -117,8 +109,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/royal-enfield/himalayan-bs6/source/himalayan-bs6637f6287a2f8e.jpg",
       quantity: 1,
-      description:
-        "India's tradition with power ",
+      description: "India's tradition with power ",
     },
     {
       id: 12,
@@ -127,8 +118,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://media.zigcdn.com/media/model/2021/Sep/yamaha-r15-v4-dark-right-side-view_930x620.jpg",
       quantity: 1,
-      description:
-        "Japanese reliability with speed",
+      description: "Japanese reliability with speed",
     },
     {
       id: 13,
@@ -137,8 +127,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://media.zigcdn.com/media/model/2021/Sep/2021-classic-350_930x620.jpg",
       quantity: 1,
-      description:
-        "India's power house, racing with passion",
+      description: "India's power house, racing with passion",
     },
     {
       id: 14,
@@ -147,8 +136,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://media.zigcdn.com/media/model/2021/Nov/tvs-apache-rtr-2004v-right-side-view_930x620.jpg",
       quantity: 1,
-      description:
-        "India's tradition with power ",
+      description: "India's tradition with power ",
     },
     {
       id: 15,
@@ -157,8 +145,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/yamaha/fz-x/source/fz-x610a1456cfa97.jpg",
       quantity: 1,
-      description:
-        "India's reliable engine with tradition ",
+      description: "India's reliable engine with tradition ",
     },
     {
       id: 16,
@@ -167,8 +154,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/honda/sp-125/source/sp-125625916ffc90d3.jpg",
       quantity: 1,
-      description:
-        "India's most affordable bike",
+      description: "India's most affordable bike",
     },
     {
       id: 17,
@@ -177,8 +163,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/bajaj/pulsar-125/source/pulsar-125614322674098a.jpg",
       quantity: 1,
-      description:
-        "Pulsar always with you",
+      description: "Pulsar always with you",
     },
     {
       id: 18,
@@ -187,8 +172,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/tvs/raider/494X300/raider635225f6ed3f3.jpg",
       quantity: 1,
-      description:
-        "TVS's first 125cc bike",
+      description: "TVS's first 125cc bike",
     },
 
     {
@@ -198,8 +182,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/vespa/sxl-125/source/sxl-1256214a91eb6f1c.jpg",
       quantity: 1,
-      description:
-        "Italian Trust",
+      description: "Italian Trust",
     },
     {
       id: 20,
@@ -208,8 +191,7 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/yamaha/fascino-125/source/fascino-125619df9072eff0.jpg",
       quantity: 1,
-      description:
-        "Fascino Fascino",
+      description: "Fascino Fascino",
     },
     {
       id: 21,
@@ -218,31 +200,24 @@ const CartProvider = (props) => {
       imageUrl:
         "https://bd.gaadicdn.com/processedimages/hero/pleasure-2019/source/pleasure-20196299cfc5a9433.jpg",
       quantity: 1,
-      description:
-        "Pleasure to ride",
+      description: "Pleasure to ride",
     },
-    
-
   ];
-  const storageCart = JSON.parse(localStorage.getItem("cart") );
-  const storageQuantity = JSON.parse(localStorage.getItem("qty")); 
-  const storageTotal = JSON.parse(localStorage.getItem("tl")); 
+  const storageCart = JSON.parse(localStorage.getItem("cart"));
+  const storageQuantity = JSON.parse(localStorage.getItem("qty"));
+  const storageTotal = JSON.parse(localStorage.getItem("tl"));
   const [items, setItems] = useState(storageCart);
   const [total, setTotal] = useState(storageTotal);
   const [quantity, setQuantity] = useState(storageQuantity);
   let storageToken = localStorage.getItem("idToken");
   const [token, setToken] = useState(storageToken);
   const [emailId, setEmail] = useState("");
-  const [postreq, setPost] = useState(false);
 
-  
-
-
-  useEffect(()=> {
-    localStorage.setItem('cart', JSON.stringify(items)); 
-    localStorage.setItem('qty', JSON.stringify(quantity)); 
-    localStorage.setItem('tl', JSON.stringify(total)); 
-  }, [items, quantity,total])
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(items));
+    localStorage.setItem("qty", JSON.stringify(quantity));
+    localStorage.setItem("tl", JSON.stringify(total));
+  }, [items, quantity, total]);
 
   const addItemToCartHandler = (item) => {
     let cartItems = [...items];
@@ -265,7 +240,7 @@ const CartProvider = (props) => {
     let storageId = localStorage.getItem("crudId");
     axios
       .put(
-        `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${emailId}/${storageId}`,
+        `https://crudcrud.com/api/c39106ce25d24a4cb3f4df8d3438ec56/data${emailId}/${storageId}`,
         {
           cartItems: cartItems,
         }
@@ -289,7 +264,7 @@ const CartProvider = (props) => {
     let storageId = localStorage.getItem("crudId");
     axios
       .put(
-        `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${emailId}/${storageId}`,
+        `https://crudcrud.com/api/c39106ce25d24a4cb3f4df8d3438ec56/data${emailId}/${storageId}`,
         {
           cartItems: newItems,
         }
@@ -299,10 +274,10 @@ const CartProvider = (props) => {
     setTotal(newTotal);
     setQuantity(newQuantity);
   };
-  window.addEventListener('DOMContentLoaded', ()=>{
+  window.addEventListener("DOMContentLoaded", () => {
     axios
       .get(
-        `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${emailId}`
+        `https://crudcrud.com/api/c39106ce25d24a4cb3f4df8d3438ec56/data${emailId}`
       )
       .then((res) => {
         if (res.data.length) {
@@ -321,9 +296,8 @@ const CartProvider = (props) => {
           setTotal(nt);
           console.log(res.data[0]._id);
         }
-      })
-  })
-
+      });
+  });
 
   const logInHandler = (token, email) => {
     setToken(token);
@@ -339,7 +313,7 @@ const CartProvider = (props) => {
     setEmail(str);
     axios
       .get(
-        `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${str}`
+        `https://crudcrud.com/api/c39106ce25d24a4cb3f4df8d3438ec56/data${str}`
       )
       .then((res) => {
         if (res.data.length) {
@@ -360,27 +334,20 @@ const CartProvider = (props) => {
           localStorage.setItem("crudId", res.data[0]._id);
         } else {
           console.log("post needed");
-          console.log(res.data);
-          setPost(true);
+          axios
+            .post(
+              `https://crudcrud.com/api/c39106ce25d24a4cb3f4df8d3438ec56/data${str}`,
+              {
+                cartItems: [],
+              }
+            )
+            .then((res) => {
+              console.log(res);
+              console.log(res.data._id);
+              localStorage.setItem("crudId", res.data._id);
+            });
         }
       });
-      let localstorageId = localStorage.getItem('crudId'); 
-      
-    if (postreq === true ) {
-      console.log(localstorageId);
-      axios
-        .post(
-          `https://crudcrud.com/api/7fc735c947934b159dd18935cef8bbaf/data${str}`,
-          {
-            cartItems: [],
-          }
-        )
-        .then((res) => {
-          console.log(res);
-          console.log(res.data._id);
-          localStorage.setItem("crudId", res.data._id);
-        });
-    }
   };
 
   const logOutHandler = () => {

@@ -4,8 +4,7 @@ import { useRef, useState, useContext } from "react";
 import CartContext from "../store/cart-context";
 
 const ContactUs = () => {
-  const nameRef = useRef("");
-  const surnameRef = useRef("");
+  const confirmPasswordRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const ctx = useContext(CartContext);
@@ -15,6 +14,12 @@ const ContactUs = () => {
     event.preventDefault();
     const enteredMail = emailRef.current.value;
     const enteredPassword = passwordRef.current.value;
+    const enteredConfirmPassword = confirmPasswordRef.current.value; 
+    if(!logInStatus){
+      if(enteredPassword !== enteredConfirmPassword){
+        return alert("Password and confirm password doesn't match"); 
+      }
+    }
     let url;
     if (logInStatus) {
       url =
@@ -24,6 +29,7 @@ const ContactUs = () => {
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC2aWDHltsNHS2_AoE5WAwW53OyqeItl4g";
     }
+    
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -67,7 +73,7 @@ const ContactUs = () => {
           className="text-center fw-bold mb-5 "
           style={{ color: "white", fontFamily: "sans-serif" }}
         >
-          Contact Us
+          {logInStatus? "Login" : "SignUp"}
         </h1>
         <div
           className="bg-white px-5 py-2 "
@@ -84,28 +90,6 @@ const ContactUs = () => {
             className="mt-3 mb-5 d-block text-center justify-content-center "
             onSubmit={submitHandler}
           >
-            {!logInStatus && (
-              <Form.Group className="mb-3 mt-3 " controlId="formBasicName ">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control
-                  ref={nameRef}
-                  type="text"
-                  placeholder="Enter name"
-                  required
-                />
-              </Form.Group>
-            )}
-            {!logInStatus && (
-              <Form.Group className="mb-3 mt-3 " controlId="formBasicSurName">
-                <Form.Label>Surname</Form.Label>
-                <Form.Control
-                  ref={surnameRef}
-                  type="text"
-                  placeholder="Enter surname "
-                  required
-                />
-              </Form.Group>
-            )}
             <Form.Group
               className="mb-3 justify-content-center"
               controlId="formBasicEmail"
@@ -117,12 +101,21 @@ const ContactUs = () => {
                 placeholder="Enter email"
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            {!logInStatus && <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 ref={passwordRef}
-                type="password"
+                type="text"
                 placeholder="Password"
+              />
+            </Form.Group>}
+            <Form.Group className="mb-3" >
+              <Form.Label htmlFor="formBasicConfirmPassword">{logInStatus? "Password" : "Confirm Password"}</Form.Label>
+              <Form.Control
+                ref={confirmPasswordRef}
+                type="password"
+                placeholder = {logInStatus? "Password" : "Confirm Password"}
+                id="formBasicConfirmPassword"
               />
             </Form.Group>
             {logInStatus && (

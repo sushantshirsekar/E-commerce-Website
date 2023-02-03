@@ -19,7 +19,7 @@ const Items = () => {
             return ctx.addItem(item);
           };
           return (
-            <Col xs={4} className="mt-4 d-fex justify-content-center ">
+            <Col xs={4} className="mt-4 d-fex justify-content-center " key={item.id}>
               <Card
                 variant="top"
                 style={{ width: "18rem", color: "white" }}
