@@ -7,13 +7,15 @@ import App from "./App";
 import "../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from "react-router-dom";
-import CartProvider from "./store/CartProvider";
+import { Provider } from "react-redux";
+import store from "./store/index";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <CartProvider>
+    <Provider store={store}>
       <App />
-    </CartProvider>
+      </Provider>
   </BrowserRouter>
 );

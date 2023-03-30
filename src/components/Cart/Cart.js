@@ -1,22 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsCartPlusFill } from "react-icons/bs";
 import { Offcanvas, Button, Table, Badge } from "react-bootstrap";
 
-import CartContext from "../../store/cart-context";
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
+import { fetchCartData, updateCartData } from "../../store/cart-actions";
 
 const Cart = () => {
   const [show, setShow] = useState(false);
-  const cartCtx = useContext(CartContext);
+  const cartItems = useSelector(state => state.cart);
+  const dispatch = useDispatch();
+
+  
   const cartHandler = () => {
     setShow(true);
   };
 
-  let hasItems = cartCtx.items.length > 0;
+  let hasItems; 
+
+  if(cartItems.totalQuantity === 0){
+    hasItems = false; 
+    console.log(false);
+  }else {
+    hasItems = true; 
+    console.log(true);
+  }
+  
 
   const removeCartHandler = () => {
     setShow(false);
   };
+
+  useEffect(()=>{
+    dispatch(fetchCartData()); 
+    console.log(cartItems.items);
+  }, [])
+
+  const addButtonHandler = (data) => {
+    dispatch(cartActions.addItem(data)); 
+  }
+
+  const removeButtonHandler = (data) => {
+    dispatch(cartActions.removeItem(data)); 
+  }
 
   return (
     <React.Fragment>
@@ -38,7 +64,7 @@ const Cart = () => {
           className="pt-1 px-0 fw-bold"
           style={{ fontSize: "1.2rem", margin: "0px" }}
         >
-          {cartCtx.quantity}
+          {cartItems.totalQuantity}
         </span>
       </Badge>
       <Offcanvas
@@ -72,13 +98,9 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cartCtx.items.map((item) => {
-                let addButtonHandler = () => {
-                  return cartCtx.addItem(item);
-                };
-                let removeButtonHandler = () => {
-                  return cartCtx.removeItem(item.id);
-                };
+              {console.log(cartItems.items)}
+              {cartItems.items.map((item) => {
+                
                 return (
                   <tr key={item.id}>
                     <td>
@@ -95,13 +117,13 @@ const Cart = () => {
                     <td className="text-center ">
                       <Button
                         className="m-1 bg-secondary border-dark"
-                        onClick={addButtonHandler}
+                        onClick={() => addButtonHandler(item)}
                       >
                         +
                       </Button>
                       <Button
                         className="m-1 bg-dark border-secondary"
-                        onClick={removeButtonHandler}
+                        onClick={() => removeButtonHandler(item)}
                       >
                         −
                       </Button>
@@ -122,10 +144,10 @@ const Cart = () => {
                   <h4>Total Amount:</h4>
                 </td>
                 <td className="text-center">
-                  <h4>{cartCtx.totalAmount}</h4>
+                  <h4>{cartItems.totalAmount}</h4>
                 </td>
                 <td className="text-center">
-                  <h4>{cartCtx.quantity}</h4>
+                  <h4>{cartItems.totalQuantity}</h4>
                 </td>
                 <td>
                   {hasItems && (

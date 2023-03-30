@@ -1,25 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
-import CartContext from "../store/cart-context";
-import { useContext } from "react";
+import { useEffect } from "react";
 import ItemDetails from "./ItemDetails";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCartData } from "../store/cart-actions";
+import { cartActions } from "../store/cart-slice";
 
 const Items = () => {
-  const ctx = useContext(CartContext);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCartData());
+  }, [dispatch]);
+  const cartData = useSelector((state) => state.cart);
+  console.log(cartData);
+  const DUMMY_DATA = useSelector((state) => state.admin.itemList);
+
+  const addItemToCartHandler = (data) => {
+    dispatch(cartActions.addItem(data));
+  };
 
   return (
     <Container>
-      {false && <ItemDetails />}
+      {console.log(cartData.items)}
+      {false && <ItemDetails itemList={DUMMY_DATA} />}
       <Row className="mt-2">
-        {ctx.products.map((item) => {
-          const addItemToCartHandler = () => {
-            return ctx.addItem(item);
-          };
+        {DUMMY_DATA.map((item) => {
           return (
-            <Col xs={4} className="mt-4 d-fex justify-content-center " key={item.id}>
+            <Col
+              xs={4}
+              className="mt-4 d-fex justify-content-center "
+              key={item.id}
+            >
               <Card
                 variant="top"
                 style={{ width: "18rem", color: "white" }}
@@ -52,7 +65,7 @@ const Items = () => {
                     id={item.id}
                     className="text-center bg-secondary border-dark"
                     style={{ marginLeft: "75px", color: "black" }}
-                    onClick={addItemToCartHandler}
+                    onClick={() => addItemToCartHandler(item)}
                   >
                     Add to Cart
                   </Button>

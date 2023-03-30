@@ -1,16 +1,23 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Container, Navbar, NavbarBrand, Button } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 import { BsFillInfoSquareFill, BsFillBagFill, BsHouseDoorFill } from "react-icons/bs";
 import Nav from "react-bootstrap/Nav";
 import classes from "./Navigation.module.css";
-import { useContext } from "react";
-import CartContext from "../store/cart-context";
 
 import Cart from "./Cart/Cart";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../store/cart-slice";
 const Navigation = () => {
-  const ctx = useContext(CartContext); 
+  const nav = useNavigate(); 
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    localStorage.clear(); 
+    nav("/"); 
+    dispatch(cartActions.logout());
+  }
+  const isLogin = useSelector(state => state.cart.loggedIn); 
   return (
     <React.Fragment>
       <Navbar bg="dark" expand="lg" variant="dark" className="mt-0">
@@ -22,7 +29,7 @@ const Navigation = () => {
                   <BsHouseDoorFill />
                 </NavLink>
               </Nav.Item>
-              {ctx.isLoggedIn && <Nav.Item className="mx-4">
+              {isLogin && <Nav.Item className="mx-4">
                 <NavLink className={classes["nav__header"]} to="/items">
                   <BsFillBagFill />
                 </NavLink>
@@ -32,7 +39,7 @@ const Navigation = () => {
                   <BsFillInfoSquareFill />
                 </NavLink>
               </Nav.Item>
-              {!ctx.isLoggedIn && <Nav.Item className="mx-4">
+              {!isLogin && <Nav.Item className="mx-4">
                 <NavLink className={classes["nav__header"]} to="/contact">
                   <FaUser />
                 </NavLink>
@@ -41,11 +48,11 @@ const Navigation = () => {
           </NavbarBrand>
 
           <Navbar.Collapse className="justify-content-end ">
-            {ctx.isLoggedIn && <Navbar.Text className="mx-2">
+            {isLogin && <Navbar.Text className="mx-2">
               <Cart />
             </Navbar.Text>}
-            {ctx.isLoggedIn && <Navbar.Text>
-              <Button variant="secondary fw-bold text-dark" onClick={ctx.logout}>Log Out</Button>
+            {isLogin && <Navbar.Text>
+              <Button variant="secondary fw-bold text-dark" onClick={logoutHandler}>Log Out</Button>
               </Navbar.Text>}
           </Navbar.Collapse>
         </Container>
@@ -57,7 +64,7 @@ const Navigation = () => {
             style={{ fontSize: "3rem", fontFamily: "cursive" }}
             className="fw-bold"
           >
-            The Generics
+            <Link to="/" style={{textDecoration:"none", color:"white"}}>The Generics</Link>
           </NavbarBrand>
         </Container>
       </Navbar>

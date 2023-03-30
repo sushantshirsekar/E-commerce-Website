@@ -2,10 +2,14 @@ import { BsFillPlayBtnFill } from "react-icons/bs";
 import { Button, Table } from "react-bootstrap";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const loginData = useSelector(state => state.cart.loggedIn); 
   return (
+    
     <React.Fragment>
+      {console.log(loginData)}
       <div className="bg-secondary">
         <div
           className="bg-secondary"
